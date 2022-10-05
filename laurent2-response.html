@@ -1,0 +1,68 @@
+<script type="text/javascript">
+    RED.nodes.registerType('laurent2-response', {
+        category: 'laurent',
+        color: '#B2FF33',
+        defaults: {
+            receiver: {value: "", type:"laurent2-receiver-config"},
+            name: { value: "" },
+            topic: { value: "" },
+            mode: { value: "value" },
+            channel: { value: "" },
+            command: { value: "" }
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "font-awesome/fa-microphone",
+        label: function() {
+            return this.name || "Laurent response";
+        },
+        paletteLabel: "Laurent2 response"
+    });
+</script>
+
+<script type="text/html" data-template-name="laurent2-response">
+    <div class="form-row">
+        <label for="node-input-receiver"><i class="fa fa-tasks"></i> Receiver</label>
+        <input type="text" id="node-input-receiver" placeholder="Receiver">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-location-arrow"></i> Topic prefix</label>
+        <input type="text" id="node-input-topic" placeholder="Topic prefix">
+    </div>
+    <div class="form-row">
+        <label for="node-input-mode"><i class="fa fa-code"></i> Return type</label>
+        <select id="node-input-mode">
+            <option>value</option>
+            <option>object</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-command"><i class="fa fa-search"></i> Command</label>
+        <input type="text" id="node-input-command" placeholder="Command">
+    </div>
+    <div class="form-row">
+        <label for="node-input-channel"><i class="fa fa-search"></i> Channel</label>
+        <select id="node-input-channel">
+            <option></option>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="laurent2-response">
+    <p>Use the response node to receive REP messages send by a receiver. The node sends a msg with a topic in the following format and the value as msg.payload.</p>
+    <p>[RECEIVER_NAME]/REP/[COMMAND]/[CHANNEL]</p>
+    <p>E.g.: Receiver-1/REP/FLASH/1 with payload "ON".</p>
+    <p>If you set the node property Topic prefix the topic format is as follows:</p>
+    <p>[TOPIC_PREFIX]/[RECEIVER_NAME]/REP/[COMMAND]/[CHANNEL]</p>
+    <p>The msg object also includes the field raw with the original message from the receiver.</p>
+    <p>You can use the Command and Channel properties of the node to filter for a specific command and/or channel.</p>
+</script>

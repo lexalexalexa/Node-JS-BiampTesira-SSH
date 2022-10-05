@@ -1,0 +1,215 @@
+[
+    {
+        "id": "677d7ffbf378b0c5",
+        "type": "tab",
+        "label": "Laurent2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c77b3de938fcc8e1",
+        "type": "laurent2-request",
+        "z": "677d7ffbf378b0c5",
+        "receiver": "e18bfcc19b91d519",
+        "name": "",
+        "commandType": "GET",
+        "channel": "",
+        "command": "",
+        "x": 510,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "aacfa8845517edcb",
+        "type": "laurent2-response",
+        "z": "677d7ffbf378b0c5",
+        "receiver": "e18bfcc19b91d519",
+        "name": "",
+        "topic": "",
+        "mode": "value",
+        "channel": "",
+        "command": "",
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "c66d60b99b767c50"
+            ]
+        ]
+    },
+    {
+        "id": "c66d60b99b767c50",
+        "type": "debug",
+        "z": "677d7ffbf378b0c5",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2eb36c8383da6a7f",
+        "type": "inject",
+        "z": "677d7ffbf378b0c5",
+        "name": "REL,4,1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"commandType\":\"REL\",\"rele_number\":4,\"value\":1}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "c77b3de938fcc8e1"
+            ]
+        ]
+    },
+    {
+        "id": "19d718e0bffbbb2e",
+        "type": "inject",
+        "z": "677d7ffbf378b0c5",
+        "name": "REL,4,0",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"commandType\":\"REL\",\"rele_number\":4,\"value\":0}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "c77b3de938fcc8e1"
+            ]
+        ]
+    },
+    {
+        "id": "08f9c9e2f2ec2fb4",
+        "type": "inject",
+        "z": "677d7ffbf378b0c5",
+        "name": "REL,2,1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"commandType\":\"REL\",\"rele_number\":2,\"value\":1}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 400,
+        "wires": [
+            [
+                "c77b3de938fcc8e1"
+            ]
+        ]
+    },
+    {
+        "id": "633a7761e337cf87",
+        "type": "inject",
+        "z": "677d7ffbf378b0c5",
+        "name": "REL,2,0",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"commandType\":\"REL\",\"rele_number\":2,\"value\":0}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 440,
+        "wires": [
+            [
+                "c77b3de938fcc8e1"
+            ]
+        ]
+    },
+    {
+        "id": "e2cadbb19a4e85ee",
+        "type": "inject",
+        "z": "677d7ffbf378b0c5",
+        "name": "REL,3,1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"commandType\":\"REL\",\"rele_number\":3,\"value\":1}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "c77b3de938fcc8e1"
+            ]
+        ]
+    },
+    {
+        "id": "b7cb68286aa3f7aa",
+        "type": "inject",
+        "z": "677d7ffbf378b0c5",
+        "name": "REL,3,0",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"commandType\":\"REL\",\"rele_number\":3,\"value\":0}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 580,
+        "wires": [
+            [
+                "c77b3de938fcc8e1"
+            ]
+        ]
+    },
+    {
+        "id": "e18bfcc19b91d519",
+        "type": "laurent2-receiver-config",
+        "name": "MyLaurent",
+        "host": "192.168.199.12",
+        "port": "2424",
+        "password": "Laurent"
+    }
+]

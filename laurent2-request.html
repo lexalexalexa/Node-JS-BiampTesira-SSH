@@ -1,0 +1,77 @@
+<script type="text/javascript">
+    RED.nodes.registerType('laurent2-request', {
+        category: 'laurent',
+        color: '#B2FF33',
+        defaults: {
+            receiver: {value: "", type:"laurent2-receiver-config"},
+            name: { value: "" },
+            commandType: { value: "GET" },
+            channel: { value: "" },
+            command: { value: "" }
+        },
+        inputs: 1,
+        outputs: 0,
+        icon: "font-awesome/fa-microphone",
+        label: function() {
+            return this.name || "Laurent2 request";
+        },
+        paletteLabel: "Laurent2 request",
+        align: 'right'
+    });
+</script>
+
+<script type="text/html" data-template-name="laurent2-request">
+    <div class="form-row">
+        <label for="node-input-receiver"><i class="fa fa-tasks"></i> Receiver</label>
+        <input type="text" id="node-input-receiver" placeholder="Receiver">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-commandType"><i class="fa fa-terminal"></i> Command type</label>
+        <select id="node-input-commandType">
+            <option>GET</option>
+            <option>SET</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-channel"><i class="fa fa-microphone"></i> Channel</label>
+        <select id="node-input-channel">
+            <option></option>
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-command"><i class="fa fa-terminal"></i> Command</label>
+        <input type="text" id="node-input-command" placeholder="Command">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="laurent2-request">
+    <p>Use the request node to send messages to a receiver. There are three options to pass the necessary data to the node.</p>
+    <h3>Option 1 – Object in the msg.payload</h3>
+    <p>Pass an object with the following structure as payload to the node:</p>
+    <p>
+        {<br>
+        commandType: "SET",  // GET or SET<br>
+        command: "FLASH", // See commands section for details on the commands.<br>
+        channel: "1", // Optional, depending on the command.<br>
+        value: "ON" // Optional, depending on the command.<br>
+        }
+    </p>
+    <h3>Option 2 – Topic</h3>
+    <p>Pass a topic (msg.topic) with the following structure to the node. The value goes into the msg.payload.</p>
+    <p>For commands with channel: [COMMAND_TYPE]/[COMMAND]/[CHANNEL]</p>
+    <p>For commands without channel: [COMMAND_TYPE]/[COMMAND]</p>
+    <p>Example:</p>
+    <p>msg.topic = “SET/FLASH/1”;<br>
+        msg.payload = “ON”;</p>
+    <h3>Option 3 – Node properties</h3>
+    <p>You can also set the necessary information in the node properties. Command type and Command are required. Channel is optional. The value has to be in the msg.payload.</p>
+</script>

@@ -1,0 +1,18 @@
+{
+  "name": "red-contrib-laurent2",
+  "version": "1.1.0",
+  "description": "This Node-RED module allows you to send and receive messages to and from KernelChip Laurent2 ethernet module.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexey Stalmakov",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "laurent2-ccu-request": "laurent2-request.js",
+      "laurent2-ccu-receiver-config": "laurent2-receiver-config.js",
+      "laurent2-ccu-response": "laurent2-response.js"
+    }
+  },
+  "main": "laurent2-receiver-config.js"
+}
